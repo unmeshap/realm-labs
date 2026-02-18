@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Chatbot } from "./components/chatbot";
+import { AnimationPanel } from "./components/AnimationPanel";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+//   return (
+//     <div className="flex flex-row w-full h-screen overflow-hidden">
+//       {/* Chatbot Section */}
+//       <div className="w-5/12 h-full border-r border-gray-200">
+//         <Chatbot />
+//       </div>
 
+//       {/* Animation Section */}
+//       <div className="w-7/12 h-full bg-[#1a1d3a]">
+//         <AnimationPanel />
+//       </div>
+//     </div>
+//   );
+// }
+
+// function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    /* flex forces children side-by-side. h-screen makes it full height. */
+    <div className="flex w-full h-screen overflow-hidden">
+      
+      {/* Chatbot: Fixed width (e.g., 400px) or percentage (1/3) */}
+      <div className="w-1/3 h-full border-r border-gray-200 bg-white">
+        <Chatbot />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+      {/* Animation: Takes up the remaining space */}
+      <div className="flex-1 h-full bg-[#1a1d3a]">
+        <AnimationPanel />
+      </div>
+      
+    </div>
+  );
+}
